@@ -113,6 +113,8 @@ document.addEventListener('DOMContentLoaded', () => {
             if (t) window.scrollTo({ top: t.offsetTop - 80, behavior: 'smooth' });
         });
     });
+// Add this line inside your initScrollReveal function
+document.querySelectorAll('.bottom-bar').forEach(el => observer.observe(el));
 
     updateLoader(); // Launch sequence
 });
