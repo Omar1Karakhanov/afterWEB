@@ -1,14 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
     
-    // 1. TYPOGRAPHY SPLITTING (Hero Reveal)
+    
     document.querySelectorAll('[data-split]').forEach(target => {
         const text = target.innerText;
         target.innerHTML = text.split('').map(char => 
             `<span class="char">${char === ' ' ? '&nbsp;' : char}</span>`
         ).join('');
     });
-
-    // 2. INITIALIZATION LOADER ENGINE
     const percentEl = document.querySelector('.load-percentage');
     const bgNumEl = document.querySelector('.big-num-bg');
     const progressFill = document.querySelector('.progress-fill');
@@ -65,7 +63,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 800);
     }
 
-    // 3. SECURE PROJECT MODAL
     const modal = document.getElementById('contact-modal');
     const stepInput = document.getElementById('step-input');
     const stepSuccess = document.getElementById('step-success');
@@ -95,7 +92,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // 4. SCROLL INTERACTIVITY
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('active'); });
     }, { threshold: 0.1 });
@@ -113,8 +109,8 @@ document.addEventListener('DOMContentLoaded', () => {
             if (t) window.scrollTo({ top: t.offsetTop - 80, behavior: 'smooth' });
         });
     });
-// Add this line inside your initScrollReveal function
+
 document.querySelectorAll('.bottom-bar').forEach(el => observer.observe(el));
 
-    updateLoader(); // Launch sequence
+    updateLoader(); 
 });
